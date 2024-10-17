@@ -62,5 +62,5 @@ void Image::Render ()
 void Image::SaveToPNG (const std::string& filename) const
 {
     stbi_flip_vertically_on_write (true);
-    stbi_write_bmp (filename.c_str (), width, height, 3, rgb->data ());
+    stbi_write_png (filename.c_str (), width, height, 3, rgb->data (), 3 * width);
 }

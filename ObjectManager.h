@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <vector>
 
 #include <glm/vec3.hpp>
@@ -9,4 +10,4 @@
 extern std::vector<glm::vec3> lightSources;
 extern std::vector<ShapePtr> shapes;
 
-void ReadFromFile (const char* filename);
+void ReadFromFile (const std::string& filename);

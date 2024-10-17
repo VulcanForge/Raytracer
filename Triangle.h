@@ -1,7 +1,5 @@
 #pragma once
 
-#include <optional>
-
 #include <glm/vec3.hpp>
 
 #include "Plane.h"
@@ -18,7 +16,7 @@ struct Triangle : Shape
 
     Triangle (const glm::vec3& a, const glm::vec3& b, const glm::vec3& c);
 
-    std::optional<float> NearestIntersection (const Ray& ray);
+    float NearestIntersection (const Ray& ray);
 
     glm::vec3 NormalAt (const glm::vec3& point);
 };

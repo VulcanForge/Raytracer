@@ -17,7 +17,7 @@ Plane Plane::FromThreePoints (const glm::vec3& a, const glm::vec3& b, const glm:
     return FromNormalAndPoint (normal, a);
 }
 
-std::optional<float> Plane::NearestIntersection (const Ray& ray)
+float Plane::NearestIntersection (const Ray& ray)
 {
     float numerator = dot - glm::dot (ray.origin, normal);
     float denominator = glm::dot (ray.direction, normal);
@@ -27,15 +27,10 @@ std::optional<float> Plane::NearestIntersection (const Ray& ray)
     else if (numerator == 0)
         return 0;
     else
-        return {};
+        return -1.f;
 }
 
 glm::vec3 Plane::NormalAt (const glm::vec3& point)
 {
     return normal;
-}
-
-glm::vec3 Plane::ColourAt (const glm::vec3& point)
-{
-    return glm::vec3 ();
 }

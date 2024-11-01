@@ -12,8 +12,8 @@
 
 int main ()
 {
-    unsigned int width = 1600;
-    unsigned int height = 900;
+    unsigned int width = 1024;
+    unsigned int height = 1024;
     float widthf = (float)width;
     float heightf = (float)height;
     std::unique_ptr<std::vector<unsigned char>> rgb = std::make_unique<std::vector<unsigned char>> (3 * width * height, (unsigned char)0);
@@ -56,13 +56,15 @@ int main ()
     glewInit ();
 
     Image image {width, height, std::move (rgb)};
-    //image.SaveToPNG ("Output/sphere.png");
-
     image.Render ();
     glfwSwapBuffers (window);
 
     while (!glfwWindowShouldClose (window))
         glfwWaitEvents ();
+
+#ifdef FILE
+    image.SaveToPNG ("Output/output.png");
+#endif
 
     glfwDestroyWindow (window);
 }
